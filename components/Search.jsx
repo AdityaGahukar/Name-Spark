@@ -1,10 +1,10 @@
 // If a component uses React hooks like useState, useEffect, useRef, or handles browser events (like onClick) — it must be a "Client Component".
 "use client";
 
-import React, { use, useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
+import React, { use, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import QueryDialog from "./QueryDialog";
 import { useQueryContext } from "@/context/BusinessNameContext";
 
@@ -16,14 +16,17 @@ function Search() {
 
     const handleKeywordChange = (e) => {
         setKeyword(e.target.value);
-    }
+    };
 
     const showQueryDialog = () => {
         if (!keyword) {
             return toast(
-                "Failed to generate business name",  // title
-                {description: "Please enter a keyword to generate a business name."}
-            )
+                "Failed to generate business name", // title
+                {
+                    description:
+                        "Please enter a keyword to generate a business name.",
+                }
+            );
         }
 
         // Update the query in context
@@ -31,17 +34,36 @@ function Search() {
 
         // if keyword is not empty, show the query modal
         setQueryDialog(!queryDialog);
-    }
+    };
 
     return (
         <div className="flex justify-center items-center pt-5">
-            <div className="w-[600px] flex gap-5">
-                <Input onChange={handleKeywordChange} placeholder="Enter a keyword..." className="h-14 text-white md:text-md border-primary" />
-                <Button onClick={showQueryDialog} className="h-14 text-white px-5 text-lg">Generate</Button>
-            </div>
-            <QueryDialog queryDialog={queryDialog} setQueryDialog={setQueryDialog} />
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    showQueryDialog();
+                }}
+                className="w-[600px] flex gap-5"
+            >
+                <Input
+                    onChange={handleKeywordChange}
+                    placeholder="Enter a keyword..."
+                    className="h-14 text-white md:text-md border-primary"
+                    value={keyword}
+                />
+                <Button
+                    type="submit"
+                    className="h-14 text-white px-5 text-lg hover:cursor-pointer"
+                >
+                    Generate
+                </Button>
+            </form>
+            <QueryDialog
+                queryDialog={queryDialog}
+                setQueryDialog={setQueryDialog}
+            />
         </div>
-    )
+    );
 }
 
-export default Search
+export default Search;

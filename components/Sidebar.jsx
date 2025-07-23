@@ -66,7 +66,7 @@ function Sidebar({refresh, setRefresh}) {
                           <Label className="text-md px-1 text-white">Description</Label>
                           <Input value={query?.description || ""} onChange={handleFormField} name="description" placeholder="Enter description" className="text-white"></Input>
                         </div>
-                        <Button onClick={generateBusinessName} className="text-black mt-2">Generate</Button>
+                        <Button onClick={generateBusinessName} className="text-black mt-2 hover:cursor-pointer">Generate</Button>
                 </div>
             </CardContent>
         </Card>
