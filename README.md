@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Name-Spark: Business Name Generator
+
+## Overview
+
+Name-Spark is a modern web application that helps entrepreneurs and businesses generate creative and relevant business names. It provides instant domain status checks and a user-friendly interface to streamline the naming process.
+
+## Features
+
+-   Generate unique business names using Gemini API and dynamic prompts
+-   Check domain availability via WhoisXML API
+-   Infinite scroll: As you scroll, more business names are generated automatically
+-   Intuitive search and filtering options
+-   Responsive and clean UI
+-   Sidebar navigation and dialogs for enhanced UX
+-   Modern UI with ShadCN components and Lucide React icons
+-   Styled using Tailwind CSS for rapid and responsive design
+-   Global state management using React Context API
+
+## Technologies Used
+
+-   [Next.js](https://nextjs.org/) (App Router)
+-   React
+-   React Context API (global state management)
+-   Tailwind CSS
+-   ShadCN (UI components)
+-   Lucide React (icons)
+-   Gemini API (business name generation)
+-   WhoisXML API (domain availability)
+-   JavaScript (ES6+)
+
+## APIs
+
+-   **Gemini API**: Generates business names using structured user prompt.
+-   **WhoisXML API**: Checks domain availability for suggested names.
+
+## Project Structure
+
+```
+components/         # Reusable UI and app components
+context/            # React context for business name state
+helpers/            # Utility functions and constants
+lib/                # Shared libraries (e.g., utils)
+public/             # Static assets (SVGs, icons, screenshots)
+app/                # Next.js app directory (pages, layouts)
+```
+
+## Screenshots
+
+![Homepage](public/assets/HomePage.png)
+
+![Name Generation](public/assets/NameGeneration.png)
+
+![Check Domain Status](public/assets/CheckDomainStatus.png)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+-   Node.js (v18+ recommended)
+-   npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+#### Environment Variables
+
+Create a `.env` file in the project root with your API keys:
+
+```env
+NEXT_PUBLIC_GEMINI_API_KEY="your-gemini-api-key"
+NEXT_PUBLIC_DOMAIN_STATUS_API="your-whoisxml-api-key"
+```
+
+Refer to the official API documentation for details on obtaining keys:
+
+-   [Gemini API](https://ai.google.dev/gemini-api/docs)
+-   [WhoisXML Domain Availability API](https://domain-availability.whoisxmlapi.com/api/documentation/making-requests)
+
+### Running the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  Enter keywords and description and select name-style and randomness for your business name.
+2.  Browse generated names.
+3.  Edit the keywords or selection if required.
+4.  Check the domain status.
